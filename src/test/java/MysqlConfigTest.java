@@ -25,18 +25,21 @@ public class MysqlConfigTest {
 
     private AbstractApplicationContext context;
     private DataSource dataSource;
+    private DataSource pooledDataSource;
     private Connection connection;
 
     @Before
     public void before() throws SQLException {
         context = new AnnotationConfigApplicationContext(MysqlConfig.class);
         dataSource = (DriverManagerDataSource) context.getBean("dataSource");
-        connection = dataSource.getConnection();
+        pooledDataSource = (org.apache.tomcat.jdbc.pool.DataSource) context.getBean("pooledDataSource");
+        connection = pooledDataSource.getConnection();
     }
 
     @Test
     public void dataSourceTest() {
         assertNotNull(dataSource);
+        assertNotNull(pooledDataSource);
     }
 
     @Test
