@@ -16,6 +16,11 @@
 <body>
 <div class="container">
     <h1>${count}</h1>
+    <h1>${userList}</h1>
+    <h1>${userList.get(1)}</h1>
+    <h1>${userList.get(1).name}</h1>
+    <h1>${user}</h1>
+    <h1>${user.pass}</h1>
     </form>
 </div>
 </body>
