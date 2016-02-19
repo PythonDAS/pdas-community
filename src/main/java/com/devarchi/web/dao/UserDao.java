@@ -2,6 +2,7 @@ package com.devarchi.web.dao;
 
 import com.devarchi.web.domain.User;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserDao {
 
+    @Autowired
     private SqlSessionTemplate sessionTemplate;
 
     public void setSessionTemplate(SqlSessionTemplate sessionTemplate) {
