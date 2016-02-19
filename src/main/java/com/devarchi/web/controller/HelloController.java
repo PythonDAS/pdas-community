@@ -47,7 +47,7 @@ public class HelloController {
 
     @RequestMapping(value = "/user")
     public String userData(Model model) {
-        model.addAttribute("user", userDao.selectByName("donghoon"));
+        model.addAttribute("count", userDao.count());
         return "user";
     }
 }

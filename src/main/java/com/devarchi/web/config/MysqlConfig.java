@@ -1,12 +1,23 @@
 package com.devarchi.web.config;
 
+import com.devarchi.web.dao.UserDao;
+import com.devarchi.web.domain.User;
 import lombok.Data;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -16,6 +27,7 @@ import javax.sql.DataSource;
 @Configuration
 @PropertySource("classpath:db.properties")
 @Data
+@EnableTransactionManagement
 public class MysqlConfig {
 
     @Value("${mysql.driverClassName}")
@@ -67,4 +79,36 @@ public class MysqlConfig {
         return dataSource;
     }
 
+    @Bean
+    public PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor() {
+        return new PersistenceExceptionTranslationPostProcessor();
+    }
+
+    @Bean
+    public PlatformTransactionManager platformTransactionManager() {
+        DataSourceTransactionManager tm = new DataSourceTransactionManager();
+        tm.setDataSource(pooledDataSource());
+        return tm;
+    }
+
+    @Bean
+    public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
+        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+        factoryBean.setDataSource(pooledDataSource());
+        Resource[] mapperLocation = new Resource[1];
+        mapperLocation[0] = new ClassPathResource("/mapper/userDao.xml");
+        factoryBean.setMapperLocations(mapperLocation);
+//현재 동작에 영향없음        factoryBean.setTypeAliases(new Class<?>[]{User.class});
+        return factoryBean.getObject();
+    }
+
+    @Bean
+    public SqlSessionTemplate sqlSessionTemplate() throws Exception {
+        return new SqlSessionTemplate(sqlSessionFactoryBean());
+    }
+
+    @Bean
+    public UserDao userDao() throws Exception {
+        return sqlSessionTemplate().getMapper(UserDao.class);
+    }
 }

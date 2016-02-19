@@ -15,8 +15,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>${user.name}</h1>
-    <h1>${user.pass}</h1>
+    <h1>${count}</h1>
     </form>
 </div>
 </body>
