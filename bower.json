@@ -1,0 +1,35 @@
+{
+  "name": "devarchi33-springmvc",
+  "authors": [
+    "devarchi33@gmail.com"
+  ],
+  "description": "devarchi33 spring mvc seed project",
+  "main": "bower.json",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "keywords": [
+    "devarchi33",
+    "spring",
+    "mvc",
+    "seed",
+    "project"
+  ],
+  "license": "MIT",
+  "homepage": "https://devarchi33.wordpress.com/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "AdminLTE": "adminlte#^2.3.2"
+  }
+}
