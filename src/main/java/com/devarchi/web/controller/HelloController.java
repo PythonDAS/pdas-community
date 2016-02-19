@@ -1,7 +1,9 @@
 package com.devarchi.web.controller;
 
 import com.devarchi.web.command.MemberJoinRequest;
+import com.devarchi.web.dao.UserDao;
 import com.devarchi.web.validator.MemberJoinValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class HelloController {
+
+    @Autowired
+    private UserDao userDao;
 
     @RequestMapping(value = "/")
     public String hello(Model model) {
@@ -38,5 +43,11 @@ public class HelloController {
 
         model.addAttribute("member", "회원가입이 성공 하였습니다!");
         return "member";
+    }
+
+    @RequestMapping(value = "/user")
+    public String userData(Model model) {
+        model.addAttribute("user", userDao.selectByName("donghoon"));
+        return "user";
     }
 }
