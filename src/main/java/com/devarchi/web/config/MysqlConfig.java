@@ -1,5 +1,6 @@
 package com.devarchi.web.config;
 
+import com.devarchi.web.dao.SkillDao;
 import com.devarchi.web.dao.UserDao;
 import com.devarchi.web.domain.User;
 import lombok.Data;
@@ -95,8 +96,9 @@ public class MysqlConfig {
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(pooledDataSource());
-        Resource[] mapperLocation = new Resource[1];
+        Resource[] mapperLocation = new Resource[2];
         mapperLocation[0] = new ClassPathResource("/mapper/userDao.xml");
+        mapperLocation[1] = new ClassPathResource("/mapper/skillDao.xml");
         factoryBean.setMapperLocations(mapperLocation);
 //현재 동작에 영향없음        factoryBean.setTypeAliases(new Class<?>[]{User.class});
         return factoryBean.getObject();
@@ -110,5 +112,10 @@ public class MysqlConfig {
     @Bean
     public UserDao userDao() throws Exception {
         return sqlSessionTemplate().getMapper(UserDao.class);
+    }
+
+    @Bean
+    public SkillDao skillDao() throws Exception {
+        return sqlSessionTemplate().getMapper(SkillDao.class);
     }
 }
