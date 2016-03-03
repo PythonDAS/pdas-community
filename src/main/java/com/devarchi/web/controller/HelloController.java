@@ -1,6 +1,7 @@
 package com.devarchi.web.controller;
 
 import com.devarchi.web.command.MemberJoinRequest;
+import com.devarchi.web.dao.SkillDao;
 import com.devarchi.web.dao.UserDao;
 import com.devarchi.web.validator.MemberJoinValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class HelloController {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private SkillDao skillDao;
 
     @RequestMapping(value = "/")
     public String hello(Model model) {
@@ -47,9 +50,14 @@ public class HelloController {
 
     @RequestMapping(value = "/user")
     public String userData(Model model) {
+        Thread thread = Thread.currentThread();
         model.addAttribute("count", userDao.count());
         model.addAttribute("userList", userDao.find());
         model.addAttribute("user", userDao.findByName("donghoon"));
+        model.addAttribute("count_skill", skillDao.count());
+        model.addAttribute("skillList", skillDao.find());
+        model.addAttribute("skillListByName", skillDao.findSkillByName("donghoon"));
+        model.addAttribute("currentThread", thread);
         return "user";
     }
 
