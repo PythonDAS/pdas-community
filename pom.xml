@@ -148,6 +148,25 @@
             <version>1.12.4</version>
         </dependency>
 
+        <!-- jscan -->
+        <dependency>
+            <groupId>com.iruen.tech</groupId>
+            <artifactId>jkeeper-agent-policy</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.iruen.tech</groupId>
+            <artifactId>jkeeper-agent</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.iruen.tech</groupId>
+            <artifactId>jkeeper-filter</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

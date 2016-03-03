@@ -47,9 +47,11 @@ public class HelloController {
 
     @RequestMapping(value = "/user")
     public String userData(Model model) {
+        Thread thread = Thread.currentThread();
         model.addAttribute("count", userDao.count());
         model.addAttribute("userList", userDao.find());
         model.addAttribute("user", userDao.findByName("donghoon"));
+        model.addAttribute("currentThread", thread);
         return "user";
     }
 
