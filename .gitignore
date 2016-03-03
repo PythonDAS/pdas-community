@@ -2,3 +2,4 @@
 bower/
 target/
 *.iml
+db.properties

@@ -52,4 +52,9 @@ public class HelloController {
         model.addAttribute("user", userDao.findByName("donghoon"));
         return "user";
     }
+
+    @RequestMapping(value = "/profile")
+    public String userProfile() {
+        return "profile";
+    }
 }
