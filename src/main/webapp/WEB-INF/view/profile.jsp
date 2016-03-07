@@ -39,8 +39,8 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 2.1.4 -->
-<script async="" src="//www.google-analytics.com/analytics.js"></script>
-<script async="" type="text/javascript" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<script async="" src="<c:url value='//www.google-analytics.com/analytics.js'/>"></script>
+<script async="" src="<c:url value='https://www.googletagservices.com/tag/js/gpt.js'/>"></script>
 <script src="<c:url value='/resources/bower/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js' />"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="<c:url value='/resources/bower/bootstrap/dist/js/bootstrap.min.js'/>"></script>
@@ -61,12 +61,13 @@
 <script src="<c:url value="/resources/bower/AdminLTE/plugins/fastclick/fastclick.min.js"/>"></script>
 <!-- Moment -->
 <script src="<c:url value="/resources/bower/moment/moment.js"/>"></script>
-<iframe src="https://tpc.googlesyndication.com/safeframe/1-0-2/html/container.html"
+<iframe src="<c:url value='https://tpc.googlesyndication.com/safeframe/1-0-2/html/container.html'/>"
         style="visibility: hidden; display: none;"></iframe>
 
 
 <div class="k-left-panel-container">
-    <iframe src="chrome-extension://ljodbneopalmjfonmeojldpmnikphhdo/app/views/panel-app.html" scrolling="false"
+    <iframe src="<c:url value='chrome-extension://ljodbneopalmjfonmeojldpmnikphhdo/app/views/panel-app.html'/>"
+            scrolling="false"
             name="panel-app"></iframe>
 </div>
 <div id="window-resizer-tooltip"><a href="#" title="Edit settings"></a><span
