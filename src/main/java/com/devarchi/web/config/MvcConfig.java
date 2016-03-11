@@ -22,17 +22,24 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
         basePackages = "com.devarchi.web",
         includeFilters = @ComponentScan.Filter({Controller.class, Service.class, Repository.class})
 )
-class MvcConfig extends WebMvcConfigurerAdapter {
+public class MvcConfig extends WebMvcConfigurerAdapter {
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/").setCachePeriod(31556926);
     }
 
+    /**
+     * InternalResouceViewResolver 는 view 가 있으면 다른 resolver 를 검색하지 않기 때문에, 최후순위로 등록한다
+     *
+     * @return
+     */
     @Bean
-    public ViewResolver viewResolver() {
+    public ViewResolver htmlViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/WEB-INF/view/");
         resolver.setSuffix(".jsp");
+        resolver.setOrder(2);
         return resolver;
     }
 
