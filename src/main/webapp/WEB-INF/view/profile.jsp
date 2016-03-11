@@ -61,6 +61,9 @@
 <script src="<c:url value="/resources/bower/AdminLTE/plugins/fastclick/fastclick.min.js"/>"></script>
 <!-- Moment -->
 <script src="<c:url value="/resources/bower/moment/moment.js"/>"></script>
+<!-- kakao -->
+<script src="<c:url value="http://developers.kakao.com/sdk/js/kakao.min.js"/>"></script>
+<script src="<c:url value="/resources/js/profile.js"/>"></script>
 <iframe src="<c:url value='https://tpc.googlesyndication.com/safeframe/1-0-2/html/container.html'/>"
         style="visibility: hidden; display: none;"></iframe>
 
