@@ -13,4 +13,10 @@ public class StaticPageController {
     public String login() {
         return "redirect:/resources/pages/login.html";
     }
+
+    @RequestMapping(value = "/register")
+    public String register() {
+        return "redirect:/resources/pages/register.html";
+    }
+
 }
