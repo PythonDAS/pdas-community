@@ -65,7 +65,7 @@ public class MysqlConfig {
         return dataSource;
     }
 
-    @Bean(destroyMethod = "close")
+    @Bean
     public DataSource pooledDataSource() {
         org.apache.tomcat.jdbc.pool.DataSource dataSource = new org.apache.tomcat.jdbc.pool.DataSource();
         dataSource.setDriverClassName(driverClassName);
@@ -104,7 +104,7 @@ public class MysqlConfig {
         return factoryBean.getObject();
     }
 
-    @Bean
+    @Bean(destroyMethod = "clearCache")
     public SqlSessionTemplate sqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(sqlSessionFactoryBean());
     }
