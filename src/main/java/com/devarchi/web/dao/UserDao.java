@@ -15,9 +15,9 @@ public interface UserDao {
     @Select("select count(*) cnt from user")
     int count();
 
-    @Select("select name, pass from user")
+    @Select("select name, pass, email from user")
     List<User> find();
 
-    @Select("select name, pass from user where name = #{name}")
+    @Select("select name, pass, email from user where name = #{name}")
     User findByName(String name);
 }
