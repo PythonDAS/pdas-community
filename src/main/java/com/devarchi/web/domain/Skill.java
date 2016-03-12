@@ -7,6 +7,6 @@ import lombok.Data;
  */
 @Data
 public class Skill {
-    private String name;
-    private String skill;
+    private Integer user_id;
+    private String skill_name;
 }
