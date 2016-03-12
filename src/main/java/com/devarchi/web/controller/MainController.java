@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by donghoon on 2016. 2. 14..
  */
 @Controller
-public class HelloController {
+public class MainController {
 
     @Autowired
     private UserDao userDao;
