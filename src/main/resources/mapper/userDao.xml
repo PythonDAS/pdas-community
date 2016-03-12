@@ -10,9 +10,6 @@
         <result property="password" column="password"/>
         <result property="email" column="email"/>
         <result property="kakao_id" column="kakao_id"/>
-        <result property="nick_name" column="nick_name"/>
-        <result property="profile_img" column="profile_img"/>
-        <result property="thumbnail_img" column="thumbnail_img"/>
     </resultMap>
 
     <!--<resultMap id="KakaoResultMap" type="Kakao">-->

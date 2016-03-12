@@ -1,9 +1,13 @@
 import com.devarchi.web.config.MysqlConfig;
+import com.devarchi.web.dao.KakaoDao;
 import com.devarchi.web.dao.UserDao;
 import com.devarchi.web.domain.User;
+import com.devarchi.web.domain.social.Kakao;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -26,6 +30,7 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {MysqlConfig.class})
 @WebAppConfiguration
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MysqlMybatisTest {
 
     private AbstractApplicationContext context;
@@ -35,8 +40,11 @@ public class MysqlMybatisTest {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private KakaoDao kakaoDao;
 
     private User user;
+    private Kakao kakao;
 
     @Before
     public void before() throws SQLException {
@@ -44,7 +52,20 @@ public class MysqlMybatisTest {
         dataSource = (DriverManagerDataSource) context.getBean("dataSource");
         pooledDataSource = (org.apache.tomcat.jdbc.pool.DataSource) context.getBean("pooledDataSource");
         connection = pooledDataSource.getConnection();
+
         user = new User();
+        user.setName("hyunkyu");
+        user.setPassword("h1111");
+        user.setEmail("imfly7@naver.com");
+
+        kakao = new Kakao();
+        kakao.setKakao_id(1);
+        kakao.setNick_name("dev_nick");
+        kakao.setProfile_img("dev_profile");
+        kakao.setThumbnail_img("dev_thumbnail");
+
+        userDao.deleteUserByName("hyunkyu");
+        kakaoDao.deleteKakaoInfoById(1);
     }
 
     @Test
@@ -69,11 +90,6 @@ public class MysqlMybatisTest {
 
     @Test
     public void insertUserTest() {
-        userDao.deleteUserByName("hyunkyu");
-
-        user.setName("hyunkyu");
-        user.setPassword("h1111");
-        user.setEmail("imfly7@naver.com");
         userDao.insertUser(user);
 
         User getUser = userDao.findByName("hyunkyu");
@@ -81,8 +97,19 @@ public class MysqlMybatisTest {
     }
 
     @Test
+    public void insertKakaoTest() {
+        kakaoDao.insertKakaoInfo(kakao);
+
+        Kakao getKakaoInfo = kakaoDao.findById(1);
+        assertEquals("dev_nick", getKakaoInfo.getNick_name());
+    }
+
+    @Test
     public void updateUserPsswordTest() {
+        userDao.insertUser(user);
         User getUser = userDao.findByName("hyunkyu");
+
+        assertNotNull(getUser);
 
         userDao.updateUserPasswordByName("newPassword", getUser.getName());
 

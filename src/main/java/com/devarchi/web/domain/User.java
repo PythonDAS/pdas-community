@@ -5,6 +5,8 @@ import org.springframework.data.annotation.Id;
 
 /**
  * Created by donghoon on 2016. 2. 19..
+ * <p>
+ * Kakao 와 1:1 관계이다.
  */
 @Data
 public class User {
@@ -15,9 +17,6 @@ public class User {
     private String password;
     private String email;
     private Integer kakao_id;
-    private String nick_name;
-    private String profile_img;
-    private String thumbnail_img;
 
     /**
      * However, if Kakao is stored in the database as a separate table, nested inserts are not supported.

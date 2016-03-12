@@ -1,5 +1,6 @@
 package com.devarchi.web.config;
 
+import com.devarchi.web.dao.KakaoDao;
 import com.devarchi.web.dao.SkillDao;
 import com.devarchi.web.dao.UserDao;
 import com.devarchi.web.domain.User;
@@ -96,9 +97,10 @@ public class MysqlConfig {
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(pooledDataSource());
-        Resource[] mapperLocation = new Resource[2];
+        Resource[] mapperLocation = new Resource[3];
         mapperLocation[0] = new ClassPathResource("/mapper/userDao.xml");
         mapperLocation[1] = new ClassPathResource("/mapper/skillDao.xml");
+        mapperLocation[2] = new ClassPathResource("/mapper/kakaoDao.xml");
         factoryBean.setMapperLocations(mapperLocation);
 //현재 동작에 영향없음        factoryBean.setTypeAliases(new Class<?>[]{User.class});
         return factoryBean.getObject();
@@ -117,5 +119,10 @@ public class MysqlConfig {
     @Bean
     public SkillDao skillDao() throws Exception {
         return sqlSessionTemplate().getMapper(SkillDao.class);
+    }
+
+    @Bean
+    public KakaoDao kakaoDao() throws Exception {
+        return sqlSessionTemplate().getMapper(KakaoDao.class);
     }
 }

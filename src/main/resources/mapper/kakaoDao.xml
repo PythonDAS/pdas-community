@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.devarchi.web.dao.KakaoDao">
+
+    <resultMap id="KakaoResultMap" type="com.devarchi.web.domain.social.Kakao">
+        <result property="kakao_id" column="kakao_id"/>
+        <result property="nick_name" column="nick_name"/>
+        <result property="profile_img" column="profile_img"/>
+        <result property="thumbnail_img" column="thumbnail_img"/>
+    </resultMap>
+
+</mapper>
