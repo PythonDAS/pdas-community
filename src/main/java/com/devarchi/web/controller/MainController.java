@@ -1,8 +1,8 @@
 package com.devarchi.web.controller;
 
 import com.devarchi.web.command.MemberJoinRequest;
-import com.devarchi.web.dao.SkillDao;
-import com.devarchi.web.dao.UserDao;
+import com.devarchi.web.dao.mybatis.SkillDao;
+import com.devarchi.web.dao.mybatis.UserDao;
 import com.devarchi.web.validator.MemberJoinValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

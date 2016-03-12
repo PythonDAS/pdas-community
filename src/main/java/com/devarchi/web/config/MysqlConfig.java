@@ -1,9 +1,8 @@
 package com.devarchi.web.config;
 
-import com.devarchi.web.dao.KakaoDao;
-import com.devarchi.web.dao.SkillDao;
-import com.devarchi.web.dao.UserDao;
-import com.devarchi.web.domain.User;
+import com.devarchi.web.dao.mybatis.KakaoDao;
+import com.devarchi.web.dao.mybatis.SkillDao;
+import com.devarchi.web.dao.mybatis.UserDao;
 import lombok.Data;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

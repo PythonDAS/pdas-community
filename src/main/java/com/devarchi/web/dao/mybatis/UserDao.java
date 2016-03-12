@@ -1,4 +1,4 @@
-package com.devarchi.web.dao;
+package com.devarchi.web.dao.mybatis;
 
 import com.devarchi.web.domain.User;
 import org.apache.ibatis.annotations.*;

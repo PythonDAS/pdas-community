@@ -1,6 +1,6 @@
 import com.devarchi.web.config.MysqlConfig;
-import com.devarchi.web.dao.KakaoDao;
-import com.devarchi.web.dao.UserDao;
+import com.devarchi.web.dao.mybatis.KakaoDao;
+import com.devarchi.web.dao.mybatis.UserDao;
 import com.devarchi.web.domain.User;
 import com.devarchi.web.domain.social.Kakao;
 import org.junit.Before;

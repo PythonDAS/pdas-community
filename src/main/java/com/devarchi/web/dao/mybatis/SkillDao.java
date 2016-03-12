@@ -1,4 +1,4 @@
-package com.devarchi.web.dao;
+package com.devarchi.web.dao.mybatis;
 
 import com.devarchi.web.domain.Skill;
 import org.apache.ibatis.annotations.Select;

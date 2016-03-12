@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.devarchi.web.dao.SkillDao">
+<mapper namespace="com.devarchi.web.dao.mybatis.SkillDao">
 
     <resultMap id="SkillResultMap" type="com.devarchi.web.domain.Skill">
         <result property="user_id" column="user_id"/>
