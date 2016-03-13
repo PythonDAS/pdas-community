@@ -60,7 +60,6 @@ public class MysqlMybatisTest {
 
         kakao = new Kakao();
         kakao.setKakao_id(1);
-        kakao.setNick_name("dev_nick");
         kakao.setProfile_img("dev_profile");
         kakao.setThumbnail_img("dev_thumbnail");
 
@@ -101,7 +100,7 @@ public class MysqlMybatisTest {
         kakaoDao.insertKakaoInfo(kakao);
 
         Kakao getKakaoInfo = kakaoDao.findById(1);
-        assertEquals("dev_nick", getKakaoInfo.getNick_name());
+        assertEquals("1", getKakaoInfo.getKakao_id().toString());
     }
 
     @Test

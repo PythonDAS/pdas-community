@@ -27,10 +27,8 @@ public interface KakaoDao {
     @Select("select kakao_id from kakao where kakao_id = #{kakao_id}")
     Kakao exist(Integer kakao_id);
 
-    @Insert("insert into kakao (kakao_id, nick_name, profile_img, thumbnail_img) " +
-            "values (#{kakao_id}, #{nick_name}, #{profile_img}, #{thumbnail_img})")
+    @Insert("insert into kakao (kakao_id, profile_img, thumbnail_img) " +
+            "values (#{kakao_id}, #{profile_img}, #{thumbnail_img})")
     void insertKakaoInfo(Kakao kakaoInfo);
 
-    @Update("update kakao set nick_name = #{nick_name} where kakao_id = #{kakao_id}")
-    void updateKakaoInfoById(@Param("nick_name") String nick_name, @Param("kakao_id") String kakao_id);
 }

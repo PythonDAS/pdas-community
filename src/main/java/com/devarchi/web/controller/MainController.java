@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by donghoon on 2016. 2. 14..
@@ -22,12 +23,14 @@ public class MainController {
     @Autowired
     private SkillDao skillDao;
 
+    //test 용도.
     @RequestMapping(value = "/")
     public String hello(Model model) {
         model.addAttribute("greeting", "안녕하세요!");
         return "hello";
     }
 
+    //test 용도.
     @RequestMapping(value = "/member")
     public String member(Model model,
                          @ModelAttribute("memberJoin") MemberJoinRequest memberJoinRequest,
@@ -48,6 +51,7 @@ public class MainController {
         return "member";
     }
 
+    //test 용도.
     @RequestMapping(value = "/user")
     public String userData(Model model) {
         Thread thread = Thread.currentThread();
@@ -61,7 +65,8 @@ public class MainController {
         return "user";
     }
 
-    @RequestMapping(value = "/profile")
+    //main profile page.
+    @RequestMapping(value = "/resources/pages/profile", method = RequestMethod.POST)
     public String userProfile() {
         return "profile";
     }
