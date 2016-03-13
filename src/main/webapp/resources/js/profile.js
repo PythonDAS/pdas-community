@@ -12,7 +12,7 @@ $(document.body).ready(function () {
 
     $('#logout-btn').on('click', function () {
         Kakao.Auth.logout(function () {
-            location.replace("http://localhost:8080/login");
+            location.replace("/");
         });
     });
 
