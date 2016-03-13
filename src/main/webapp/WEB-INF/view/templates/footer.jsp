@@ -10,6 +10,6 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright©2016 <a class="https://github.com/PythonDAS">PythonDAS</a>.</strong> All rights
+    <strong>Copyright 2016 <a class="https://github.com/PythonDAS">PythonDAS</a>.</strong> All rights
     reserved.
 </footer>

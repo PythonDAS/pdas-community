@@ -35,11 +35,12 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li><a href="http://ec2-52-79-88-81.ap-northeast-2.compute.amazonaws.com:8888"><i class="fa fa-tablet"></i>
+            <li><a href="http://ec2-52-79-88-81.ap-northeast-2.compute.amazonaws.com:8888" target="_blank"><i
+                    class="fa fa-tablet"></i>
                 <span>Jupyter Notebook</span></a>
-            <li><a href="http://ec2-52-79-88-81.ap-northeast-2.compute.amazonaws.com:8080"><i
+            <li><a href="http://ec2-52-79-88-81.ap-northeast-2.compute.amazonaws.com:8080" target="_blank"><i
                     class="fa fa-mixcloud"></i> <span>Repository</span></a>
-            <li><a href="https://github.com/PythonDAS"><i
+            <li><a href="https://github.com/PythonDAS" target="_blank"><i
                     class="fa fa-github"></i> <span>Github</span></a>
                 <%--<li class="treeview">--%>
                 <%--<a href="#">--%>
