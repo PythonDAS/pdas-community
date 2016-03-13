@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class StaticPageController {
+    @RequestMapping(value = "/")
+    public String home() {
+        return "redirect:/resources/pages/pythondas-homepage/index.html";
+    }
 
     @RequestMapping(value = "/login")
     public String login() {

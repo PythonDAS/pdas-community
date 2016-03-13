@@ -15,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by donghoon on 2016. 2. 14..
@@ -28,11 +27,9 @@ public class MainController {
     private UserDao userDao;
     @Autowired
     private SkillDao skillDao;
-    @Autowired
-    private KakaoDao kakaoDao;
 
     //test 용도.
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/hello")
     public String hello(Model model) {
         model.addAttribute("greeting", "안녕하세요!");
         return "hello";

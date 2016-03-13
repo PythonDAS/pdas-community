@@ -8,8 +8,8 @@
 <!-- /.content-wrapper -->
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Version</b> 2.3.1
+        <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright © 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright©2016 <a class="https://github.com/PythonDAS">PythonDAS</a>.</strong> All rights
     reserved.
 </footer>

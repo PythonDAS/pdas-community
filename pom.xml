@@ -6,7 +6,7 @@
 
     <groupId>devarchi33-data-viewer</groupId>
     <artifactId>devarchi33-data-viewer</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>war</packaging>
 
     <name>Spring MVC Project by Devarchi33</name>
@@ -23,6 +23,7 @@
         <http.connector.host>localhost</http.connector.host>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.outputdir>/Users/donghoon/Documents/amazon/build</project.outputdir>
     </properties>
 
     <dependencies>
@@ -152,6 +153,7 @@
     </dependencies>
 
     <build>
+        <directory>${project.outputdir}/pythondas</directory>
         <plugins>
             <!-- Compiler -->
             <plugin>
@@ -166,8 +168,9 @@
             <!-- WAR -->
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
+                <version>2.6</version>
                 <configuration>
+                    <warName>pdas</warName>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>

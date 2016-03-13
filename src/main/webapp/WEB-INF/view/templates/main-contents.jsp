@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <!-- Content Wrapper. Contains page content -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <div class="content-wrapper" style="min-height: 1126px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -29,9 +30,9 @@
                 <div class="box box-primary">
                     <div class="box-body box-profile">
                         <img class="profile-user-img img-responsive img-circle"
-                             src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                             src="<c:url value='${kakaoInfo.getProfile_img()  }' />" alt="User profile picture">
 
-                        <h3 class="profile-username text-center">Nina Mcintire</h3>
+                        <h3 class="profile-username text-center">${kakaoInfo.getNick_name()}</h3>
 
                         <p class="text-muted text-center">Software Engineer</p>
 
