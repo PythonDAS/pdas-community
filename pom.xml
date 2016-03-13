@@ -13,7 +13,7 @@
     <url>https://devarchi33.wordpress.com</url>
 
     <properties>
-        <spring.version>4.2.3.RELEASE</spring.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
         <spring.mybatis>1.2.3</spring.mybatis>
         <mybatis.version>3.3.0</mybatis.version>
         <slf4j.version>1.7.5</slf4j.version>
@@ -37,6 +37,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- Db driver -->

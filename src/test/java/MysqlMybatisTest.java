@@ -105,6 +105,14 @@ public class MysqlMybatisTest {
     }
 
     @Test
+    public void existKakaoIdTest() {
+        kakaoDao.insertKakaoInfo(kakao);
+
+        int existKakaoId = kakaoDao.exist(1).getKakao_id();
+        assertEquals(1, existKakaoId);
+    }
+
+    @Test
     public void updateUserPsswordTest() {
         userDao.insertUser(user);
         User getUser = userDao.findByName("hyunkyu");
