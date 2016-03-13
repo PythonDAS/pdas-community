@@ -17,9 +17,9 @@ function makeForm(method, url) {
     return form;
 };
 
-function profileView(path) {
+function profileView(path, kakao_id) {
     var form = makeForm("post", path);
-    // var objs = makeInput("userId", userId);
-    // form.appendChild(objs);
+    var objs = makeInput("kakao_id", kakao_id);
+    form.appendChild(objs);
     form.submit();
 };

@@ -3,14 +3,15 @@
  */
 
 $(document).ready(function () {
-    $.getScript('http://localhost:8080/resources/js/util.js', function () {
-        console.log("util script loaded!");
+    var host = "http://localhost:8080/";
+
+    $.getScript('/resources/js/constants.js', function () {
+        console.log("constant script loaded!");
     });
 
-    // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('38e588cbe5f0544831d1dc3541cb0e45');
-
-    var host = "http://localhost:8080/";
+    $.getScript('/resources/js/util.js', function () {
+        console.log("util script loaded!");
+    });
 
     // 카카오 로그인 버튼 click 이벤트.
     $('#kakao-login-btn').on('click', function () {
@@ -26,10 +27,10 @@ $(document).ready(function () {
                     Kakao.API.request({
                         url: "/v1/user/me",
                         success: function (response) {
-                            var kakao_id = response.id;
-                            var nick_name = response.properties.nickname;
-                            var profile_img = response.properties.profile_image;
-                            var thumbnail_img = response.properties.thumbnail_image;
+                            kakao_id = response.id;
+                            nick_name = response.properties.nickname;
+                            profile_img = response.properties.profile_image;
+                            thumbnail_img = response.properties.thumbnail_image;
 
                             //kakao 테이블에서 kakao_id 조회.  --->  jquery ajax call, 대응 rest controller method.
                             //가입된 회원인지 DB 체크.(param: kakaoId)
@@ -41,7 +42,7 @@ $(document).ready(function () {
                                 },
                                 success: function (response) {
                                     if (response === "EXISTID") {
-                                        profileView("profile");
+                                        profileView("profile", kakao_id);
                                     } else if (response === "NOTEXISTID") {
                                         //획득한 kakao 정보 전송.
                                         $.ajax({
@@ -53,10 +54,9 @@ $(document).ready(function () {
                                                 thumbnail_img: thumbnail_img
                                             },
                                             success: function () {
-                                                profileView("/resources/pages/profile");
+                                                profileView("/resources/pages/profile", kakao_id);
                                             },
                                             error: function (error) {
-                                                alert("Nick: " + nick_name);
                                                 alert("Server Error!" + JSON.stringify(error));
                                             }
                                         })
@@ -77,4 +77,6 @@ $(document).ready(function () {
             });
         });
     });
+    //login-btn end.
+
 });

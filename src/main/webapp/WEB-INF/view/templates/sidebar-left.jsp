@@ -13,8 +13,8 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<c:url value="/resources/bower/AdminLTE/dist/img/user2-160x160.jpg"/>" class="img-circle"
-                     alt="User Image">
+                <img src="<c:url value='${kakaoInfo.getProfile_img()  }'/>" class="img-circle left-user-img"
+                     alt="User Image" style="height: 45px;">
             </div>
             <div class="pull-left info">
                 <p>Alexander Pierce</p>

@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>Hello</title>
+    <link rel="stylesheet" href="<c:url value="/resources/css/profile.css" /> ">
     <link rel="stylesheet" href="<c:url value="/resources/bower/bootstrap/dist/css/bootstrap.min.css" /> ">
     <link rel="stylesheet" href="<c:url value="/resources/bower/font-awesome/css/font-awesome.min.css" /> ">
     <link rel="stylesheet" href="<c:url value="/resources/bower/AdminLTE/dist/css/AdminLTE.min.css" /> ">

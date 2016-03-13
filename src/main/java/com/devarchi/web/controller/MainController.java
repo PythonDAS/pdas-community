@@ -1,8 +1,10 @@
 package com.devarchi.web.controller;
 
 import com.devarchi.web.command.MemberJoinRequest;
+import com.devarchi.web.dao.mybatis.KakaoDao;
 import com.devarchi.web.dao.mybatis.SkillDao;
 import com.devarchi.web.dao.mybatis.UserDao;
+import com.devarchi.web.domain.social.Kakao;
 import com.devarchi.web.validator.MemberJoinValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by donghoon on 2016. 2. 14..
@@ -22,6 +25,8 @@ public class MainController {
     private UserDao userDao;
     @Autowired
     private SkillDao skillDao;
+    @Autowired
+    private KakaoDao kakaoDao;
 
     //test 용도.
     @RequestMapping(value = "/")
@@ -67,7 +72,14 @@ public class MainController {
 
     //main profile page.
     @RequestMapping(value = "/resources/pages/profile", method = RequestMethod.POST)
-    public String userProfile() {
+    public String userProfile(Model model, @RequestParam String kakao_id) {
+        Integer transId = paramStringToInteger(kakao_id);
+        Kakao kakaoInfo = kakaoDao.findById(transId);
+        model.addAttribute("kakaoInfo", kakaoInfo);
         return "profile";
+    }
+
+    private Integer paramStringToInteger(String param) {
+        return Integer.parseInt(param);
     }
 }
