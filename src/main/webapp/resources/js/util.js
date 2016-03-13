@@ -17,9 +17,15 @@ function makeForm(method, url) {
     return form;
 };
 
-function profileView(path, kakao_id) {
+function profileView(path, kakao_id, nick_name, profile_img, profile_img) {
     var form = makeForm("post", path);
     var objs = makeInput("kakao_id", kakao_id);
+    var objs2 = makeInput("nick_name", nick_name);
+    var objs3 = makeInput("profile_img", profile_img);
+    var objs4 = makeInput("thumbnail_img", profile_img);
     form.appendChild(objs);
+    form.appendChild(objs2);
+    form.appendChild(objs3);
+    form.appendChild(objs4);
     form.submit();
 };

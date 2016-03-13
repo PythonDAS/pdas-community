@@ -40,6 +40,7 @@ public class RestResController {
 
     @RequestMapping(value = "insert_kakao_info", method = RequestMethod.POST)
     public String checKakaoId(@ModelAttribute Kakao kakao) {
+        logger.debug("최초 로그인!  -->  kakao info 저장.");
         try {
             kakaoDao.insertKakaoInfo(kakao); //null pointer exception check 필요함.
         } catch (NullPointerException e) {

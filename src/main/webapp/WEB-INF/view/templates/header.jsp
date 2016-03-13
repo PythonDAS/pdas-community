@@ -243,7 +243,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<c:url value='${kakaoInfo.getProfile_img()  }' />" class="user-image"
                              alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">${kakaoInfo.getNick_name()}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -252,7 +252,7 @@
                                  alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
+                                ${kakaoInfo.getNick_name()} - Web Developer
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>

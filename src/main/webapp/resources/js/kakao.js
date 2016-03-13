@@ -42,7 +42,7 @@ $(document).ready(function () {
                                 },
                                 success: function (response) {
                                     if (response === "EXISTID") {
-                                        profileView("profile", kakao_id);
+                                        profileView("profile", kakao_id, nick_name, profile_img, thumbnail_img);
                                     } else if (response === "NOTEXISTID") {
                                         //획득한 kakao 정보 전송.
                                         $.ajax({
@@ -54,7 +54,7 @@ $(document).ready(function () {
                                                 thumbnail_img: thumbnail_img
                                             },
                                             success: function () {
-                                                profileView("/resources/pages/profile", kakao_id);
+                                                profileView("/resources/pages/profile", kakao_id, nick_name, profile_img, thumbnail_img);
                                             },
                                             error: function (error) {
                                                 alert("Server Error!" + JSON.stringify(error));

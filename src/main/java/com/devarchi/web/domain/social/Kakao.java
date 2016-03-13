@@ -11,6 +11,7 @@ import lombok.Data;
 public class Kakao {
 
     private Integer kakao_id;
+    private String nick_name;
     private String profile_img;
     private String thumbnail_img;
 }

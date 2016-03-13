@@ -17,7 +17,7 @@
                      alt="User Image" style="height: 45px;">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>${kakaoInfo.getNick_name()}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>

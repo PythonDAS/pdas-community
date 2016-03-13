@@ -22,7 +22,10 @@ $(document.body).ready(function () {
             url: '/v1/user/me',
             success: function (response) {
                 kakao_id = response.id;
-                profileView("/resources/pages/profile", kakao_id);
+                nick_name = response.properties.nickname;
+                profile_img = response.properties.profile_image;
+                thumbnail_img = response.properties.thumbnail_image;
+                profileView("/resources/pages/profile", kakao_id, nick_name, profile_img, thumbnail_img);
             }
         });
     });

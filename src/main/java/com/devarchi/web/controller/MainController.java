@@ -6,6 +6,8 @@ import com.devarchi.web.dao.mybatis.SkillDao;
 import com.devarchi.web.dao.mybatis.UserDao;
 import com.devarchi.web.domain.social.Kakao;
 import com.devarchi.web.validator.MemberJoinValidator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class MainController {
+    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @Autowired
     private UserDao userDao;
@@ -72,10 +75,9 @@ public class MainController {
 
     //main profile page.
     @RequestMapping(value = "/resources/pages/profile", method = RequestMethod.POST)
-    public String userProfile(Model model, @RequestParam String kakao_id) {
-        Integer transId = paramStringToInteger(kakao_id);
-        Kakao kakaoInfo = kakaoDao.findById(transId);
-        model.addAttribute("kakaoInfo", kakaoInfo);
+    public String userProfile(Model model, @ModelAttribute Kakao kakao) {
+        logger.debug("메인 프로필 페이지!");
+        model.addAttribute("kakaoInfo", kakao);
         return "profile";
     }
 
