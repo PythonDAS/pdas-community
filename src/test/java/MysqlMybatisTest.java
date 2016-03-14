@@ -107,7 +107,7 @@ public class MysqlMybatisTest {
     public void existKakaoIdTest() {
         kakaoDao.insertKakaoInfo(kakao);
 
-        int existKakaoId = kakaoDao.exist(1).getKakao_id();
+        int existKakaoId = kakaoDao.exist(1);
         assertEquals(1, existKakaoId);
     }
 

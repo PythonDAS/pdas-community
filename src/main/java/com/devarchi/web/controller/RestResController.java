@@ -23,34 +23,6 @@ public class RestResController {
     @Autowired
     private KakaoDao kakaoDao;
 
-    @RequestMapping(value = "check_kakao_id", method = RequestMethod.POST)
-    public String checKakaoId(String kakao_id) {
-        try {
-            Integer castKakaoId = Integer.parseInt(kakao_id);
-            kakaoDao.exist(castKakaoId).getKakao_id(); //null pointer exception check 필요함.
-        } catch (NullPointerException e) {
-            //null 이면 kakao info insert 후 profile 페이지 이동.
-            logger.debug("최초 로그인!");
-            return "NOTEXISTID";
-        }
-        //null 이 아니면 profile 페이지 이동.
-        logger.debug("이미 가입한 회원!");
-        return "EXISTID";
-    }
-
-    @RequestMapping(value = "insert_kakao_info", method = RequestMethod.POST)
-    public String checKakaoId(@ModelAttribute Kakao kakao) {
-        logger.debug("최초 로그인!  -->  kakao info 저장.");
-        try {
-            kakaoDao.insertKakaoInfo(kakao); //null pointer exception check 필요함.
-        } catch (NullPointerException e) {
-            //null 이면 error message return.
-            return e.getMessage();
-        }
-        //null 이 아니면 welcome return.
-        return "Welcome";
-    }
-
     //aws mysql 한글입력 문제 해결해야 함.
     private String encodingUtf8(String str) throws UnsupportedEncodingException {
         return URLDecoder.decode(str, "utf-8");

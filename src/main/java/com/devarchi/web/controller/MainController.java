@@ -27,6 +27,8 @@ public class MainController {
     private UserDao userDao;
     @Autowired
     private SkillDao skillDao;
+    @Autowired
+    private KakaoDao kakaoDao;
 
     //test 용도.
     @RequestMapping(value = "/hello")
@@ -72,10 +74,33 @@ public class MainController {
 
     //main profile page.
     @RequestMapping(value = "/resources/pages/profile", method = RequestMethod.POST)
-    public String userProfile(Model model, @ModelAttribute Kakao kakao) {
+    public String profilePage(Model model, @ModelAttribute Kakao kakao) {
         logger.debug("메인 프로필 페이지!");
+
+        //kakao 이외의 방법으로 로그인 시 로직 구현 할 부분.
+        if (kakao == null) {
+            return "profile";
+        }
+
+        //kakao 로 로그인 유저 로직.
         model.addAttribute("kakaoInfo", kakao);
-        return "profile";
+
+        Integer kakaoId = kakao.getKakao_id();
+
+        Integer existUser = kakaoDao.exist(kakaoId);
+        logger.debug("First login user by kakao: " + existUser);
+
+        if (existUser != null) {
+            // 이미 로그인 했던 유저는 바로 뷰 리턴.
+            logger.debug("이미 회원임.");
+            return "profile";
+        } else {
+            // 최초 로그인 유저는 kakao 정보 저장후 뷰 리턴.
+            logger.debug("처음 방문함.");
+            kakaoDao.insertKakaoInfo(kakao);
+            return "profile";
+        }
+
     }
 
     private Integer paramStringToInteger(String param) {

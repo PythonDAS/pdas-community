@@ -25,7 +25,7 @@ public interface KakaoDao {
     Kakao findById(Integer kakao_id);
 
     @Select("select kakao_id from kakao where kakao_id = #{kakao_id}")
-    Kakao exist(Integer kakao_id);
+    Integer exist(Integer kakao_id);
 
     @Insert("insert into kakao (kakao_id, profile_img, thumbnail_img) " +
             "values (#{kakao_id}, #{profile_img}, #{thumbnail_img})")

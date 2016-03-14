@@ -25,49 +25,16 @@ $(document).ready(function () {
                     Kakao.API.request({
                         url: "/v1/user/me",
                         success: function (response) {
+                            // kakao 유저 정보 획득 후 변수 저장.
                             kakao_id = response.id;
                             nick_name = response.properties.nickname;
                             profile_img = response.properties.profile_image;
                             thumbnail_img = response.properties.thumbnail_image;
 
-                            //kakao 테이블에서 kakao_id 조회.  --->  jquery ajax call, 대응 rest controller method.
-                            //가입된 회원인지 DB 체크.(param: kakaoId)
-                            $.ajax({
-                                url: host + "check_kakao_id",
-                                type: "post",
-                                data: {
-                                    kakao_id: kakao_id
-                                },
-                                success: function (response) {
-                                    if (response === "EXISTID") {
-                                        profileView("profile", kakao_id, nick_name, profile_img, thumbnail_img);
-                                    } else if (response === "NOTEXISTID") {
-                                        //획득한 kakao 정보 전송.
-                                        $.ajax({
-                                            url: host + "insert_kakao_info",
-                                            type: "post",
-                                            data: {
-                                                kakao_id: kakao_id,
-                                                profile_img: profile_img,
-                                                thumbnail_img: thumbnail_img
-                                            },
-                                            success: function () {
-                                                profileView(host + "/resources/pages/profile", kakao_id, nick_name, profile_img, thumbnail_img);
-                                            },
-                                            error: function (error) {
-                                                alert("Server Error!" + JSON.stringify(error));
-                                            }
-                                        })
-                                    }
-                                },
-                                error: function (error) {
-                                    alert("Server Error!" + JSON.stringify(error));
-                                }
-                            });
+                            // 메인 프로필 페이지 이동.
+                            profileView(host + "/resources/pages/profile", kakao_id, nick_name, profile_img, thumbnail_img);
                         }
                     });
-                    //있으면 proile 페이지 이동.
-                    //없으면 kakao info update 후 profile 페이지 이동.
                 },
                 fail: function (err) {
                     alert(JSON.stringify(err));
