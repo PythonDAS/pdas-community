@@ -7,16 +7,14 @@ function makeInput(name, value) {
     objs.setAttribute('name', name);
     objs.setAttribute('value', value);
     return objs;
-};
-
+}
 function makeForm(method, url) {
     var form = document.createElement('form');
     form.setAttribute('method', method);
     form.setAttribute('action', url);
     document.body.appendChild(form);
     return form;
-};
-
+}
 function profileView(path, kakao_id, nick_name, profile_img, profile_img) {
     var form = makeForm("post", path);
     var objs = makeInput("kakao_id", kakao_id);
@@ -28,4 +26,4 @@ function profileView(path, kakao_id, nick_name, profile_img, profile_img) {
     form.appendChild(objs3);
     form.appendChild(objs4);
     form.submit();
-};
+}

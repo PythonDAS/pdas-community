@@ -1,6 +1,7 @@
 /**
  * Created by donghoon on 2016. 3. 13..
  */
+var host = "http://localhost:8080/";
 var kakao_js_key = '38e588cbe5f0544831d1dc3541cb0e45';
 var kakao_id;
 var nick_name;

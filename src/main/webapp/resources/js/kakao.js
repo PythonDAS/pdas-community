@@ -3,8 +3,6 @@
  */
 
 $(document).ready(function () {
-    var host = "http://localhost:8080/";
-
     $.getScript('/resources/js/constants.js', function () {
         console.log("constant script loaded!");
     });
@@ -54,7 +52,7 @@ $(document).ready(function () {
                                                 thumbnail_img: thumbnail_img
                                             },
                                             success: function () {
-                                                profileView("/resources/pages/profile", kakao_id, nick_name, profile_img, thumbnail_img);
+                                                profileView(host + "/resources/pages/profile", kakao_id, nick_name, profile_img, thumbnail_img);
                                             },
                                             error: function (error) {
                                                 alert("Server Error!" + JSON.stringify(error));

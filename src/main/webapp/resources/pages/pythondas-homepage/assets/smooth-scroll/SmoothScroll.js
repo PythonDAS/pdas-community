@@ -563,7 +563,7 @@ function isTouchpad(deltaY) {
     if (!deltaBuffer.length) {
         deltaBuffer = [deltaY, deltaY, deltaY];
     }
-    deltaY = Math.abs(deltaY)
+    deltaY = Math.abs(deltaY);
     deltaBuffer.push(deltaY);
     deltaBuffer.shift();
     clearTimeout(deltaBufferTimer);
@@ -707,7 +707,7 @@ function SmoothScroll(optionsToSet) {
 SmoothScroll.destroy = cleanup;
 
 if (window.SmoothScrollOptions) // async API
-    SmoothScroll(window.SmoothScrollOptions)
+    SmoothScroll(window.SmoothScrollOptions);
 
 if ('object' == typeof exports)
     module.exports = SmoothScroll;

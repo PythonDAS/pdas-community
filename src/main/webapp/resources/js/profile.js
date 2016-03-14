@@ -25,7 +25,7 @@ $(document.body).ready(function () {
                 nick_name = response.properties.nickname;
                 profile_img = response.properties.profile_image;
                 thumbnail_img = response.properties.thumbnail_image;
-                profileView("/resources/pages/profile", kakao_id, nick_name, profile_img, thumbnail_img);
+                profileView(host + "/resources/pages/profile", kakao_id, nick_name, profile_img, thumbnail_img);
             }
         });
     });

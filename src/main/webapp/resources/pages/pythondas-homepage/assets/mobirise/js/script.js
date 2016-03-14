@@ -22,14 +22,13 @@
                 function delayed () {
                     if (!execAsap) func.apply(obj, args);
                     timeout = null;
-                };
-
+                }
                 if (timeout) clearTimeout(timeout);
                 else if (execAsap) func.apply(obj, args);
 
                 timeout = setTimeout(delayed, threshold || 100);
             };
-        }
+        };
         // smartresize 
         jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
 
@@ -339,7 +338,7 @@
                             .css({
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
-                            })
+                            });
                         $('.container:eq(0)', this).before($img);
 
                         $('<img>').on('load', function() {
@@ -358,7 +357,7 @@
                                 $img.css('background-image', 'url("' + this.src + '")')
                                     .show();
                             }
-                        }).attr('src', previewURL)
+                        }).attr('src', previewURL);
 
                         if ($.fn.YTPlayer && !$.isMobile()){
                             var params = eval('(' + ($(this).data('bg-video-params') || '{}') + ')');
