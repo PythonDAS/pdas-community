@@ -3,3 +3,4 @@ bower/
 target/
 *.iml
 *.properties
+*.*.properties
