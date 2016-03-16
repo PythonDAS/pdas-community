@@ -26,7 +26,7 @@ import javax.sql.DataSource;
  * Created by donghoon on 2016. 2. 19..
  */
 @Configuration
-@PropertySource("classpath:db.iruen.properties")
+@PropertySource("classpath:db.devarchi.properties")
 @Data
 @EnableTransactionManagement
 public class MysqlConfig {
